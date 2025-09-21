@@ -5,6 +5,42 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MatrixCheckTest {
     @Test
+    public void whenHasMonoVertical() {
+        char[][] input = {
+                {' ', ' ', 'X'},
+                {' ', ' ', 'X'},
+                {' ', ' ', 'X'},
+        };
+        int column = 2;
+        boolean result = MatrixCheck.monoVertical(input, column);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void whenHasMonoVertical2() {
+        char[][] input = {
+                {' ', ' ', 'X'},
+                {' ', ' ', ' '},
+                {' ', ' ', 'X'},
+        };
+        int column = 2;
+        boolean result = MatrixCheck.monoVertical(input, column);
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void whenHasMonoVertical1() {
+        char[][] input = {
+                {' ', ' ', ' '},
+                {' ', ' ', 'X'},
+                {' ', ' ', 'X'},
+        };
+        int column = 2;
+        boolean result = MatrixCheck.monoVertical(input, column);
+        assertThat(result).isFalse();
+    }
+
+    @Test
     public void whenHasNoMonoHorizontal1() {
         char[][] input = {
                 {' ', ' ', ' '},
